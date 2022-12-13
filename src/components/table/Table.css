@@ -1,0 +1,58 @@
+.table-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.table-wrapper {
+  display: flex;
+  width: 15rem;
+  gap: 60rem;
+}
+
+.settingIcon-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.settingIcon-style img {
+  width: 2rem;
+  height: 1rem;
+}
+
+.table-dimensions-style {
+  border: 1px solid black;
+}
+
+.table-col-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.table-col-list li {
+  margin-left: 4rem;
+  margin-right: 3rem;
+  list-style: none;
+  margin-top: 1rem;
+  border-radius: 4px;
+  border: 1px solid black;
+  border-left: 4px solid blue;
+}
+
+.table-dimensions-actions {
+  display: flex;
+  margin-top: 2rem;
+  margin-left: 86.7%;
+  gap: 3px;
+}
+
+.close {
+  color: blue;
+}
+
+.apply-change {
+  background-color: rgb(70, 70, 250);
+  color: white;
+  border: none;
+}
