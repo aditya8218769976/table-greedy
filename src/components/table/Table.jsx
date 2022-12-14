@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-
-import "react-calendar/dist/Calendar.css";
 import "../table/Table.css";
 import settingIcon from "../assets/settingIcon.svg";
 import axios from "axios";
@@ -8,15 +6,10 @@ import axios from "axios";
 const Table = () => {
   const [myData, setMyData] = useState([]);
 
-  const [draglist, setDragList] = useState([
-    "Date",
-    "Apps",
-    "Clicks",
-    "Requests",
-    "Revenue",
-    "Fill Rate",
-    "CTR",
-  ]);
+  const [draglist, setDragList] = useState(
+    ["Date", "Apps", "Clicks", "Requests", "Revenue", "Fill Rate", "CTR"],
+    [myData]
+  );
 
   const dragItem = useRef();
   const dragOverItem = useRef();
@@ -116,25 +109,26 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {myData?.map((item, index) => (
-            <tr key={index}>
-              <th>{item.date}</th>
-              <th>{item.app_id}</th>
-              <th>{item.clicks}</th>
-              <th>{item.requests}</th>
-              <th>{item.revenue}</th>
-              <th>{(item.requests / item.responses) * 100}%</th>
-              <th>{(item.clicks / item.impressions) * 100}%</th>
-              <th>
-                <button
-                  onClick={() => rowDeleteHandler(index)}
-                  className="btn btn-primary"
-                >
-                  Delete
-                </button>
-              </th>
-            </tr>
-          ))}
+          {draglist &&
+            myData.map((item, index) => (
+              <tr key={index}>
+                <th scope="col">{item.date}</th>
+                <th scope="col">{item.app_id}</th>
+                <th scope="col">{item.clicks}</th>
+                <th scope="col">{item.requests}</th>
+                <th scope="col">{item.revenue}</th>
+                <th scope="col">{(item.requests / item.responses) * 100}%</th>
+                <th scope="col">{(item.clicks / item.impressions) * 100}%</th>
+                <th scope="col">
+                  <button
+                    onClick={() => rowDeleteHandler(index)}
+                    className="btn btn-primary"
+                  >
+                    Delete
+                  </button>
+                </th>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
