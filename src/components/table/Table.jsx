@@ -39,7 +39,7 @@ const Table = () => {
   useEffect(() => {
     axios
       .get(
-        "https://go-dev.greedygame.com/v3/dummy/report?startDate=2021-05-01&endDate=2021-05-03"
+        "http://go-dev.greedygame.com/v3/dummy/report?startDate=2021-05-01&endDate=2021-05-03"
       )
       .then((response) => {
         setMyData(response.data.data);
